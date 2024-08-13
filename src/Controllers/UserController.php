@@ -49,7 +49,7 @@ class UserController extends AbnCmsBackendController
 
         $relationalForm =  new SingleFieldMultipleValueFormBuilder(["name"=>"roles"],$builder);
 
-        $relationalForm->addField("role_id",new InputComponent(["type"=>"select","name"=>"role_id","attr"=>["multiple"=>true],"multiple"=>true,"options"=>Role::pluck("name","id")]));
+        $relationalForm->addField("role_id",new SelectComponent(["type"=>"select","name"=>"role_id","attr"=>["multiple"=>true],"multiple"=>true,"options"=>Role::pluck("name","id")]));
         $builder->addField("roles",$relationalForm);
         $builder->onlyFields(["name","email","password","roles","submit"]);
         $password = $builder->fields["password"]->setConfig("type","password");
